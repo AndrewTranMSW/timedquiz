@@ -14,6 +14,38 @@ const questionContainerElement = document.getElementById("question-container");
 let questionElement = document.getElementById('question');
 //this grabs the specific ANSWER element
 const answerButtonsElement = document.getElementById('answer-buttons');
+//Questions and answers
+var questionIndex = 0 
+let questionsList = [
+    {
+        question: "which is a fruit?",
+        answers: [
+            { text: 'Bacon', correct: false },
+            { text: 'Tomato', correct: true },
+            { text: 'Lettuce', correct: false },
+            { text: 'Cucumber', correct: false }
+        ]
+    },
+    {
+        question: "Which is a planet?",
+        answers: [
+            { text: 'Venus', correct: false },
+            { text: 'Tomato', correct: true },
+            { text: 'Lettuce', correct: false },
+            { text: 'Cucumber', correct: false }
+        ]
+    },
+    {
+        question: "which is a fruit?",
+        answers: [
+            { text: 'Bacon', correct: false },
+            { text: 'Tomato', correct: true },
+            { text: 'Lettuce', correct: false },
+            { text: 'Cucumber', correct: false }
+        ]
+    },
+   
+]
 
 
 
@@ -35,50 +67,53 @@ const answerButtonsElement = document.getElementById('answer-buttons');
 // gameStart();
 
 function startGame () {
-console.log('Fuck');
+console.log('Started');
 startButton.classList.add('hide');
-var timerInterval = setInterval(function() {
-    startGame.addEventListener('click', timerInterval);
-    secondsLeft--;
-    time.textContent = secondsLeft + " Seconds Left.";
-})
+// var timerInterval = setInterval(function() {
+//     startGame.addEventListener('click', timerInterval);
+//     secondsLeft--;
+//     time.textContent = secondsLeft + " Seconds Left.";
+// })
 questionContainerElement.classList.remove('hide');
-setNextQuestion()
+// setNextQuestion()
+showQuestion()
 }
 
-function setNextQuestion () {
-    showQuestion()
-}
+// function setNextQuestion () {
+//     showQuestion()
+// }
 
-function showQuestion(question) {
-    questionElement.innerText = questions.question
-    questions.answers.forEach(answer => {
-        const button = document.createElement('button')
-        button.innerText = answer.text
-        button.classList.add('btn')
-        if (answer.correct) {
-            button.dataset.correct = answer.correct
-        }
-        button.addEventListener('click', selectAnswer)
-        answerButtonsElement.appendChild(button)
-    })
+function showQuestion() {
+    var activeQuestion = questionsList[questionIndex]
+    console.log(activeQuestion.question);
+    questionElement.innerText = activeQuestion.question;
+    var activeAnswer = activeQuestion.answers
+    for (var i=0; i<activeAnswer.length; i++) {
+        console.log(activeAnswer[i].text);
+        var button = document.createElement('button')
+        button.innerText = activeAnswer[i].text;
+        var listItem = document.createElement('li')
+        listItem.appendChild(button);
+        answerButtonsElement.appendChild(listItem);
+    }
+
+//     questions.answers.forEach(answer => {
+//         const button = document.createElement('button')
+//         button.innerText = answer.text
+//         button.classList.add('btn')
+//         if (answer.correct) {
+//             button.dataset.correct = answer.correct
+//         }
+//         button.addEventListener('click', selectAnswer)
+//         answerButtonsElement.appendChild(button)
+//     })
 }
 
 function selectAnswer () {
 
 }
 
-let questions = [
-    {
-        question: "which is a fruit?",
-        answers: [
-            { text: 'Bacon', correct: false },
-            { text: 'Tomato', correct: true },
-            { text: 'Lettuce', correct: false },
-            { text: 'Cucumber', correct: false }
-        ]
-    }
-]
+
 
 // var questions = ["Which is a fruit?", "Which is a planet?", "Who was a President of the USA?", "Which Cherry MX switch sounds clicky and feels tactile?"];
 

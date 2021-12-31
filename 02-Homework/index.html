@@ -7,46 +7,43 @@
     <link rel="stylesheet" href="./Assets/stylesheet.css" />
     <title>Coding Quiz</title>
   </head>
-<body>
+  <body>
+    <header>
+      <button id="hiscore">View Highscores</button>
+      <h2 class="time" style="text-align: center"></h2>
+    </header>
 
-  <header>
+    <main>
+      <div class="container1">
+        <h1>Coding Quiz Challenge?!</h1>
+        <h2 id="container1h2">
+          Try to answer the following code-related questions within the time
+          limit. Keep in mind the incorrect answers will penalize your
+          score/time by ten seconds omg.
+        </h2>
+      </div>
+      <br />
+      <div id="question-container" class="hide">
+        <div id="question">Question</div>
+        <br />
+        <br />
+        <div class="btn-grid">
+          <ol id="answer-buttons">
+            <!-- <li><button class="btn" id="answer1">Answer 1</button></li>
+            <li><button class="btn" id="answer2">Answer 2</button></li>
+            <li><button class="btn" id="answer3">Answer 3</button></li>
+            <li><button class="btn" id="answer4">Answer 4</button></li> -->
+          </ol>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="start-btn" class="start-btn-btn">Start</button>
+      </div>
 
-    <button id="hiscore">View Highscores</button>
-    <h2 class="time" style="text-align:center;"></h2>
-
-  </header>
-
-<main>
-  <div class="container1">
-    <h1>Coding Quiz Challenge?!</h1>
-    <h2 id="container1h2">
-        Try to answer the following code-related questions within the time
-        limit. Keep in mind the incorrect answers will penalize your score/time
-        by ten seconds omg.
-    </h2>
-<br>
-  <div id="question-container" class="hide">
-    <div id="question">Question</div>
-    <br>
-    <br>
-  <div id="answer-buttons" class="btn-grid">
-    <ol>
-      <li><button id="btn">Answer 1</button></li>
-      <li><button id="btn">Answer 2</button></li>
-      <li><button id="btn">Answer 3</button></li>
-      <li><button id="btn">Answer 4</button></li>
-    </ol>
-    </div>
-</div>
-    <div class="controls">
-      <button id="start-btn" class="start-btn-btn">Start</button>
-    </div>
-
-
-    <div>
-    <h4 id="demo"></h4>
-      <script src="./Assets/script.js"></script>
-    </div>
-    </body>
-  </main>
+      <div>
+        <h4 id="demo"></h4>
+        <script src="./Assets/script.js"></script>
+      </div>
+    </main>
+  </body>
 </html>
