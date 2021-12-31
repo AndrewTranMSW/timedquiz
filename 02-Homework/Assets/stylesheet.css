@@ -1,0 +1,106 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: hotpink;
+    padding:0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    padding: 10px;
+    margin: 10px;
+}
+
+#hiscore {
+    font-size: 16px;
+    padding-top: 10px;
+    background-color:aqua;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#time {
+    display: flex;
+    border: black;
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+.container1 {
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#container1h2 {
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+#question-container {
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-left: 400px;
+}
+
+#answer-buttons {
+    width: 120px;
+    max-width: 50%;
+    background-color: green;
+    border-radius: 5px;
+    padding:10px;
+    box-shadow: 0 0 10px 2px;
+    color: white;
+    outline: none;
+}
+
+#btn:hover {
+    border-color: black;
+    color: black;
+}
+
+.controls {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.start-btn-btn {
+    width: 120px;
+    max-width: 50%;
+    background-color: red;
+    border-radius: 5px;
+    padding:10px;
+    box-shadow: 0 0 10px 2px;
+    color: white;
+    outline: none;
+    margin-right: 15%;
+}
+
+.start-btn-btn:hover {
+    background-color: blue;
+    border-color: yellow;
+}
+
+#demo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
