@@ -4,7 +4,7 @@ var time = document.querySelector(".time");
 var secondsLeft = 90;
 
 //This STARTS the game
-const startButton = document.getElementById("start-btn");
+let startButton = document.getElementById("start-btn");
 startButton.addEventListener('click', startGame);
 //Functioning
 
@@ -23,7 +23,7 @@ const answerButtonsElement = document.getElementById('answer-buttons');
 // function gameStart () {
 //     var timerInterval = setInterval(function() {
 //         startGame.addEventListener("click", gameStart);
-//         secondsLeft--;8
+//         secondsLeft--;
 //         time.textContent = secondsLeft + " seconds left until booooooooop.";
 //         if(secondsLeft <=0){
 //             clearInterval(timerInterval); 
@@ -37,6 +37,11 @@ const answerButtonsElement = document.getElementById('answer-buttons');
 function startGame () {
 console.log('Fuck');
 startButton.classList.add('hide');
+var timerInterval = setInterval(function() {
+    startGame.addEventListener('click', timerInterval);
+    secondsLeft--;
+    time.textContent = secondsLeft + " Seconds Left.";
+})
 questionContainerElement.classList.remove('hide');
 setNextQuestion()
 }
