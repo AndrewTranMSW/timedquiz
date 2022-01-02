@@ -5,13 +5,17 @@ let startButton = document.getElementById("start-btn");
 startButton.addEventListener('click', startGame);
 //This grabs the timer element
 var timerEl = document.getElementById("timer-seconds");
-var timeLeft = 900;
+var secondsLeft = 10;
 //This grabs the question container which contains the questions and the answers.
 const questionContainerElement = document.getElementById("question-container");
 //This grabs the specific QUESTION element
 let questionElement = document.getElementById('question');
 //this grabs the specific ANSWER element
 const answerButtonsElement = document.getElementById('answer-buttons');
+//this listens for a click on the ANSWER element
+answerButtonsElement.addEventListener('click', nextQuestion);
+//Keeping Score
+var score = 0;
 
 //Questions and answers
 var questionIndex = 0 
@@ -52,35 +56,53 @@ let questionsList = [
             { text: 'Black', correct: false }
         ]
     },
-   
 ]
 
-//THEN a timer starts and I am presented with a question
-
-// function gameStart () {
-//     var timerInterval = setInterval(function() {
-//         startGame.addEventListener("click", gameStart);
-//         secondsLeft--;
-//         time.textContent = secondsLeft + " seconds left until booooooooop.";
-//         if(secondsLeft <=0){
-//             clearInterval(timerInterval); 
-//             document.getElementById("demo").innerHTML = "Time is up hehe";
-//             return;
-//         }
-//     }, 1000);
-// }
-// gameStart();
-
+// var timerEl = document.getElementById("timer-seconds");
+// var secondsLeft = 90;
 function startGame () {
-console.log('Started');
-startButton.classList.add('hide');
-questionContainerElement.classList.remove('hide');
-showQuestion();
+    var timerInterval = setInterval(function() {
+        timerEl.innerHTML=secondsLeft + " seconds left until booooooooop.";
+        if(secondsLeft <=0){
+            clearInterval(timerInterval); 
+            timerEl.innerHTML = "Time is up hehe";
+        }
+        secondsLeft--;
+    }, 1000);
+    //code below is functional
+    console.log('Started');
+    startButton.classList.add('hide');
+    questionContainerElement.classList.remove('hide');
+    showQuestion();
 }
 
-function countdown() {
+function showQuestion() {
+    var activeQuestion = questionsList[questionIndex];
+    var activeAnswer = activeQuestion.answers;
 
+    questionElement.innerText = activeQuestion.question;
+    
+    for (var i=0; i<activeAnswer.length; i++) {
+        console.log(activeAnswer[i].text);
+        var button = document.createElement('button');
+        var listItem = document.createElement('li');
+
+        button.innerText = activeAnswer[i].text;
+        listItem.appendChild(button);
+        answerButtonsElement.appendChild(listItem);
+    }
 }
+
+function nextQuestion () {
+    questionIndex++;
+    //Empties the previous answers and inserts the next set of answers
+    answerButtonsElement.innerHTML='';
+    showQuestion();
+}
+
+// function countdown() {
+
+// }
 
 
 // var timerInterval = setInterval(function() {
@@ -94,19 +116,21 @@ function countdown() {
 //     showQuestion()
 // }
 
-function showQuestion() {
-    var activeQuestion = questionsList[questionIndex]
-    console.log(activeQuestion.question);
-    questionElement.innerText = activeQuestion.question;
-    var activeAnswer = activeQuestion.answers
-    for (var i=0; i<activeAnswer.length; i++) {
-        console.log(activeAnswer[i].text);
-        var button = document.createElement('button')
-        button.innerText = activeAnswer[i].text;
-        var listItem = document.createElement('li')
-        listItem.appendChild(button);
-        answerButtonsElement.appendChild(listItem);
-    }
+//THEN a timer starts and I am presented with a question
+
+// function gameStart () {
+//     var timerInterval = setInterval(function() {
+//         secondsLeft--;
+//         time.textContent = secondsLeft + " seconds left until booooooooop.";
+//         if(secondsLeft <=0){
+//             clearInterval(timerInterval); 
+//             document.getElementById("demo").innerHTML = "Time is up hehe";
+//             return;
+//         }
+//     }, 1000);
+// }
+// gameStart();
+
 
 //     questions.answers.forEach(answer => {
 //         const button = document.createElement('button')
@@ -118,11 +142,11 @@ function showQuestion() {
 //         button.addEventListener('click', selectAnswer)
 //         answerButtonsElement.appendChild(button)
 //     })
-}
 
-function selectAnswer () {
+
+// function selectAnswer () {
     
-}
+// }
 
 //Make a function for a timer to be located on the screen that starts ONCE the start button is pressed
 //Make a variable for the 
