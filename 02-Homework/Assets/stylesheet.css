@@ -29,11 +29,12 @@ main {
     padding: 10px;
 }
 
-#time {
+.time {
     display: flex;
     border: black;
     padding-top: 10px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .container1 {
@@ -67,7 +68,7 @@ main {
     outline: none;
 }
 
-#btn:hover {
+.btn:hover {
     border-color: black;
     color: black;
 }
