@@ -5,7 +5,7 @@ let startButton = document.getElementById("start-btn");
 startButton.addEventListener('click', startGame);
 //This grabs the timer element
 var timerEl = document.getElementById("timer-seconds");
-var secondsLeft = 90;
+var secondsLeft = 10;
 //This grabs the question container which contains the questions and the answers.
 const questionContainerElement = document.getElementById("question-container");
 //This grabs the specific QUESTION element
@@ -18,6 +18,8 @@ answerButtonsElement.addEventListener('click', nextQuestion);
 var correctIncorrectEl = document.getElementById("correct-incorrect-text");
 //Keeping Score
 var score = 0;
+//Initials Form
+const initialsEl = document.getElementById("initialform");
 
 //Questions and answers, questionIndex starts at the top of the array and is used in the for loop.
 var questionIndex = 0 
@@ -62,21 +64,23 @@ let questionsList = [
 
 //Function for starting the game
 function startGame () {
-    //Timer
-    var timerInterval = setInterval(function() {
-        timerEl.innerHTML=secondsLeft + " seconds left until boop.";
-        if(secondsLeft <=0){
-            clearInterval(timerInterval); 
-            timerEl.innerHTML = "Time is up hehe";
-        }
-        secondsLeft--;
-    }, 1000);
-    //Hides the 'start' button and removes the 'hide' CSS class from the question element
     console.log('Started');
     startButton.classList.add('hide');
     questionContainerElement.classList.remove('hide');
     showQuestion();
+    //Timer
+    var timerInterval = setInterval(function() {
+        timerEl.innerHTML=secondsLeft + " seconds left until boop.";
+        if(secondsLeft === 0){
+            clearInterval(timerInterval); 
+            timerEl.innerHTML = "Time is up";
+            initialsEl.classList.remove('hide-form');
+            questionContainerElement.classList.add('hide');
+        }
+        secondsLeft--;
+    }, 1000);
 }
+
 //Function shows the questions and answers arrays
 function showQuestion() {
     var activeQuestion = questionsList[questionIndex];
