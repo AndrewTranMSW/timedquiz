@@ -8,7 +8,6 @@
     <title>Coding Quiz</title>
   </head>
   <body>
-
     <header>
       <button id="hiscore">View Highscores</button>
       <div class="time">
@@ -35,24 +34,19 @@
           <ol id="answer-buttons"></ol>
         </div>
         <div class="correct-incorrect">
-          <p id="correct-incorrect-text">Correct?</p>
+          <p id="correct-incorrect-text"></p>
         </div>
       </div>
       <div class="controls">
         <button id="start-btn" class="start-btn-btn">Start</button>
       </div>
       <div id="initialform" class="hide-form">
-        <form id="initials">
-          <label for="initials-entry">Please enter your initials here:</label>
-          <input type="text">
-          <input type="submit" value="Submit">
-        </form>  
+        <label for="initials" id="initialsText">Please enter your initials here:</label>
+        <input type="text"/>
+        <button id="submit">Submito</button>
       </div>
 
-      <div>
-        <h4 id="demo"></h4>
-        <script src="./Assets/script.js"></script>
-      </div>
+      <script src="./Assets/script.js"></script>
     </main>
   </body>
 </html>

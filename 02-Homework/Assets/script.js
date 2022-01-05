@@ -5,7 +5,7 @@ let startButton = document.getElementById("start-btn");
 startButton.addEventListener('click', startGame);
 //This grabs the timer element
 var timerEl = document.getElementById("timer-seconds");
-var secondsLeft = 10;
+var secondsLeft = 2;
 //This grabs the question container which contains the questions and the answers.
 const questionContainerElement = document.getElementById("question-container");
 //This grabs the specific QUESTION element
@@ -20,6 +20,8 @@ var correctIncorrectEl = document.getElementById("correct-incorrect-text");
 var score = 0;
 //Initials Form
 const initialsEl = document.getElementById("initialform");
+//Initials Form Submit button for local storage
+var submitBtn = document.getElementById("submit");
 
 //Questions and answers, questionIndex starts at the top of the array and is used in the for loop.
 var questionIndex = 0 
@@ -97,7 +99,17 @@ function showQuestion() {
         listItem.appendChild(button);
         answerButtonsElement.appendChild(listItem);
     }
+
+    //not working correctly
+    if (activeAnswer === true) {
+        // correctIncorrectEl.innerHTML = "Correct";
+        console.log("correcto");
+    } else {
+        // correctIncorrectEl.innerHTML = "Incorrect";
+        console.log("incorrecto");
+    }
 }
+
 //Function for going to the next question of the array
 function nextQuestion () {
     questionIndex++;
@@ -106,8 +118,13 @@ function nextQuestion () {
     showQuestion();
 }
 
-
-//Make a function for a timer to be located on the screen that starts ONCE the start button is pressed
+//Registers initials to local storage
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    //Initials Text Value
+    const initialsText = document.getElementById("initialsText").value;
+    localStorage.setItem("initialsText", initialsText);
+});
 
 
 // End-user will need to be presented with a question and 4 multiple choice questions. They must click the correct one, if they do:
