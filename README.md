@@ -12,10 +12,10 @@ My struggles with this project that I will work on:
 4) A function needs to be made that prompts whether or not the user selected the correct or incorrect answer.
 
 # Images
-![Landing page with start button](/Assets/Images/startScreen.JPG)
-![Timer](/Assets/Images/timer.JPG)
-![Questions with four answer choices as buttons](/Assets/Images/question.JPG)
-![Form for submitting initials](/Assets/Images/initialBoxLocalStorage.JPG)
+![Landing page with start button](02-Homework/Assets/Images/startScreen.JPG)
+![Timer](02-Homework/Assets/Images/timer.JPG)
+![Questions with four answer choices as buttons](02-Homework/Assets/Images/question.JPG)
+![Form for submitting initials](02-Homework/Assets/Images/initialBoxLocalStorage.JPG)
 
 # Credits
 - W3 functions - https://www.w3schools.com/js/js_functions.asp
