@@ -5,7 +5,7 @@ let startButton = document.getElementById("start-btn");
 startButton.addEventListener('click', startGame);
 //This grabs the timer element
 var timerEl = document.getElementById("timer-seconds");
-var secondsLeft = 2;
+var secondsLeft = 15;
 //This grabs the question container which contains the questions and the answers.
 const questionContainerElement = document.getElementById("question-container");
 //This grabs the specific QUESTION element
@@ -22,6 +22,7 @@ var score = 0;
 const initialsEl = document.getElementById("initialform");
 //Initials Form Submit button for local storage
 var submitBtn = document.getElementById("submit");
+var container1 = document.getElementsByClassName("container1");
 
 //Questions and answers, questionIndex starts at the top of the array and is used in the for loop.
 var questionIndex = 0 
@@ -102,10 +103,10 @@ function showQuestion() {
 
     //not working correctly
     if (activeAnswer === true) {
-        // correctIncorrectEl.innerHTML = "Correct";
+        correctIncorrectEl.innerHTML = "Correct";
         console.log("correcto");
     } else {
-        // correctIncorrectEl.innerHTML = "Incorrect";
+        correctIncorrectEl.innerHTML = "Incorrect";
         console.log("incorrecto");
     }
 }
@@ -124,6 +125,7 @@ submitBtn.addEventListener("click", function(event) {
     //Initials Text Value
     const initialsText = document.getElementById("initialsText").value;
     localStorage.setItem("initialsText", initialsText);
+    console.log(initialsText);
 });
 
 
